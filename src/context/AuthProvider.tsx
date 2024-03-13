@@ -10,15 +10,15 @@ import { FlashMessageContext } from "./FlashMessageContext";
 
 export const AuthProvider: React.FC<Children> = ({ children }) => {
   const [user, setUser] = useState<UserInfo | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading,setIsLoading] = useState<boolean>(false);
   const [token, setToken] = useState<string>('');
-  const { loading, hideLoading } = useLoadingContext();
+  const {loading, hideLoading} = useLoadingContext();
   const { showFlashMessage } = useContext(FlashMessageContext);
 
   const getUserFromStorage = async () => {
     try {
       const user = await EncryptedStorage.getItem('UserInfo');
-      if (user) {
+      if (user) {        
         setUser(JSON.parse(user));
       }
     } catch (error: any) {
@@ -29,16 +29,16 @@ export const AuthProvider: React.FC<Children> = ({ children }) => {
       });
     }
   }
-  return <AuthContext.Provider value={{ isLoading, user, setUser, token, setToken, getUserFromStorage }}>{children}
-    <Overlay
-      overlayStyle={{ backgroundColor: 'transparent', elevation: 0 }}
-      style={{ backgroundColor: 'transparent' }}
-      isVisible={loading}>
-      <ActivityIndicator
-        size={'large'}
-        color={"#F03974"}
-        style={{ backgroundColor: 'transparent' }}
-      />
-    </Overlay>
+  return <AuthContext.Provider value={{isLoading,user,setUser, token, setToken, getUserFromStorage}}>{children}
+  <Overlay
+        overlayStyle={{backgroundColor: 'transparent', elevation: 0}}
+        style={{backgroundColor: 'transparent'}}
+        isVisible={loading}>
+        <ActivityIndicator
+          size={'large'}
+          color={"#F03974"}
+          style={{backgroundColor: 'transparent'}}
+        />
+      </Overlay>
   </AuthContext.Provider>;
 };

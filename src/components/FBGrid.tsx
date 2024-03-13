@@ -4,8 +4,8 @@
  *
  * (c) Copyright by Jibran.
  **/
-import React, { Component } from 'react';
-import { Text, View, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import React, {Component} from 'react';
+import {Text, View, Image, TouchableOpacity, StyleSheet} from 'react-native';
 
 const ImageItem = (props: any) => {
   return props.image ? (
@@ -65,9 +65,9 @@ type Props = {
 
 export default class FbGrid extends Component<Props> {
   render() {
-    const { images, style, onPress }: any = this.props;
+    const {images, style, onPress}: any = this.props;    
     return images.length > 0 ? (
-      <View style={{ ...styles.container_row, ...style }}>
+      <View style={{...styles.container_row, ...style}}>
         {images.length < 3 ? (
           <TwoImages images={images} onPress={onPress} />
         ) : (

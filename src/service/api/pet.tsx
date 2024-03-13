@@ -5,7 +5,7 @@ import { useLoadingContext } from "../../context/loadingHelper";
 
 export const usePet = () => {
     const baseApi = new BaseApiService();
-    const { showLoading, hideLoading } = useLoadingContext();
+    const {showLoading, hideLoading} = useLoadingContext();
 
     const onGetAllPet = async (page?: number, take?: number, species?: string, userId?: string) => {
         showLoading();
@@ -15,7 +15,7 @@ export const usePet = () => {
     };
 
     const onCreatePet = async (image?: string, dob?: string, gender?: string, furColor?: string, description?: string, name?: string, species?: string) => {
-        showLoading();
+        showLoading();                
         const res = await baseApi.post(`${API_URL}/pets`, {
             s3ImagePet: image,
             dateOfBirth: dob,
@@ -31,7 +31,7 @@ export const usePet = () => {
 
 
     const onUpdatePet = async (id?: string, image?: string, dob?: string, gender?: string, furColor?: string, description?: string, name?: string, species?: string, isRemoveImage?: boolean) => {
-        showLoading();
+        showLoading();                
         const res = await baseApi.patch(`${API_URL}/pets/${id}`, {
             s3ImagePet: image,
             dateOfBirth: dob,
@@ -47,20 +47,20 @@ export const usePet = () => {
     };
 
     const onUpdateHavePet = async () => {
-        showLoading();
+        showLoading();        
         const res = await baseApi.post(`${API_URL}/pets/update-have-pet`);
         hideLoading();
         return res;
-    };
-
+    }; 
+    
 
     const onDeletePet = async (petId: any) => {
         showLoading();
         const res = await baseApi.delete(`${API_URL}/pets/${petId}`);
         hideLoading();
         return res;
-    };
-
+    }; 
+    
 
 
 

@@ -149,7 +149,7 @@ export const UserProvider: React.FC<any> = ({ children }) => {
     }
   };
 
-
+  
 
   const signOut = async () => {
     // try {

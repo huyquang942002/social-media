@@ -6,7 +6,7 @@ import { useLoadingContext } from "../../context/loadingHelper";
 
 export const useComments = () => {
     const baseApi = new BaseApiService();
-    const { showLoading, hideLoading } = useLoadingContext();
+    const {showLoading, hideLoading} = useLoadingContext();
 
     const onCreateComment = async (postId: string, content: string, commentId: string, commentImageName: string) => {
         showLoading();
@@ -19,7 +19,7 @@ export const useComments = () => {
         hideLoading();
         return res;
     }
-
+    
     const onGetCommentByPost = async (postId: string, page: number, take: number) => {
         showLoading();
         const res = await baseApi.get(`${API_URL}/comment/postId/${postId}?page=${page}&take=${take}`);
@@ -39,7 +39,7 @@ export const useComments = () => {
         hideLoading();
         return res;
     }
+    
 
-
-    return { onCreateComment, onGetCommentByPost, deleteComment, onGetCommentByParentComment };
+    return { onCreateComment, onGetCommentByPost, deleteComment, onGetCommentByParentComment};
 }; 

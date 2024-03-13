@@ -72,7 +72,7 @@ function Routes() {
                 <stack.Screen name="EditPost" component={PostScreen} />
                 <stack.Screen name="AnimalHome" component={AnimalHomeScreen} />
 
-
+                
               </stack.Navigator>
             </>
           ) : (

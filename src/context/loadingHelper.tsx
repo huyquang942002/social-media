@@ -1,5 +1,5 @@
 import React from 'react';
-import { createContext, FC, useContext, useState } from 'react';
+import {createContext, FC, useContext, useState} from 'react';
 
 interface ILoadingContext {
   loading: boolean;
@@ -9,8 +9,8 @@ interface ILoadingContext {
 
 const LoadingContext = createContext<ILoadingContext>({
   loading: false,
-  showLoading: () => { },
-  hideLoading: () => { },
+  showLoading: () => {},
+  hideLoading: () => {},
 });
 
 export const useLoadingContext = () => {

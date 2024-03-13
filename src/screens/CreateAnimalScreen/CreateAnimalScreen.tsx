@@ -52,7 +52,7 @@ const SpeciesItems = [
 
 const CreateAnimalScreen: React.FC<Types> = ({ navigation, route }) => {
   let petInfo = route.params?.petInfo;
-  const { user } = useContext(AuthContext);
+  const {user} = useContext(AuthContext);
   const [name, setName] = useState<string>();
   const [species, setSpecies] = useState<any>(SpeciesItems[0]);
   const [gender, setGender] = useState<any>();
@@ -72,7 +72,7 @@ const CreateAnimalScreen: React.FC<Types> = ({ navigation, route }) => {
 
   const { onCreatePet, onUpdateHavePet, onUpdatePet } = usePet();
 
-  useEffect(() => {
+  useEffect(() => {    
     if (petInfo) {
       setName(petInfo.name);
       setSpecies(petInfo.species);
@@ -80,7 +80,7 @@ const CreateAnimalScreen: React.FC<Types> = ({ navigation, route }) => {
       setColor(petInfo.furColor);
       setDescription(petInfo.description);
       if (petInfo.s3ImagePet) {
-
+        
         const oldImage = convertToS3LinkPet(user.id, petInfo.s3ImagePet);
 
         const base64 = convertUriToBase64(oldImage.path);
@@ -130,7 +130,7 @@ const CreateAnimalScreen: React.FC<Types> = ({ navigation, route }) => {
     // }
     const res = await onCreatePet(avatar.filename, date.toDateString(), gender, color, description, name, species);
     if (res.succeeded) {
-      if (avatar) {
+      if (avatar) {        
         await onPutImage(res.data.s3ImagePet, avatar);
       }
       await onUpdateHavePet();
@@ -186,7 +186,7 @@ const CreateAnimalScreen: React.FC<Types> = ({ navigation, route }) => {
 
     const res = await onUpdatePet(petInfo.id, avatar.filename, date.toDateString(), gender, color, description, name, species, false);
     if (res.succeeded) {
-      if (avatar) {
+      if (avatar) {        
         await onPutImage(res.data.data.newS3Link, avatar);
       }
       showFlashMessage({
@@ -233,7 +233,7 @@ const CreateAnimalScreen: React.FC<Types> = ({ navigation, route }) => {
         data: image.data
       }
       setAvatar(imageItem);
-
+      
     });
   }
 
@@ -245,7 +245,7 @@ const CreateAnimalScreen: React.FC<Types> = ({ navigation, route }) => {
       height: 200,
       includeBase64: true,
     }).then((image: any) => {
-
+      
       const imageItem = {
         filename: image.filename || moment.now().toString(),
         path: image.path,

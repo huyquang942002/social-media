@@ -110,7 +110,7 @@ const PostItem: React.FC<Types> = ({ item, onPress, onRefresh, onEdit, onClickUs
     }
     onRefresh();
   }
-
+  
   return (
     <View key={item.id}>
       <View style={styles.postTopContainer}>
@@ -218,14 +218,14 @@ const PostItem: React.FC<Types> = ({ item, onPress, onRefresh, onEdit, onClickUs
         </TouchableOpacity>
       </View>
       <AppModal
-        onConfirm={() => deletePost()}
-        onCancel={() => setShowModal(false)}
-        isVisible={showModal}
-        onBackdropPress={() => { }}
-        title='Move to your trash ?'
-        canCancel>
-
-      </AppModal>
+      onConfirm={() => deletePost()}
+      onCancel={() => setShowModal(false)}
+      isVisible={showModal}
+      onBackdropPress={() => {}}
+      title='Move to your trash ?'
+      canCancel>
+      
+    </AppModal>
     </View>
   );
 };
@@ -267,7 +267,7 @@ const styles = StyleSheet.create({
   },
   postText: {
     marginHorizontal: '8%',
-    marginTop: 12,
+    marginTop: 12,    
   },
   postBottom: {
     flexDirection: 'row',

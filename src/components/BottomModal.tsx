@@ -1,7 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
-import { makeStyles, OverlayProps } from 'react-native-elements';
-import { Overlay } from 'react-native-elements/dist/overlay/Overlay';
+import {View} from 'react-native';
+import {makeStyles, OverlayProps} from 'react-native-elements';
+import {Overlay} from 'react-native-elements/dist/overlay/Overlay';
 import AppButton from './Button';
 
 export interface IBottomModal extends OverlayProps {
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
 }));
 export const BottomModal = (props: IBottomModal) => {
   const {
-    confirmTitle = "Confirm",
+    confirmTitle ="Confirm",
     cancelTitle = "Cancel",
   } = props;
   const styles = useStyles();
