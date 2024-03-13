@@ -20,9 +20,9 @@ const Auth = () => {
         component={SignUp}
         options={{ headerShown: false }}
       />
-      <stack.Screen name="Verify" component={VerifyScreen} options={{ headerShown: false }}/>
-      <stack.Screen name="Otp" component={OtpScreen} options={{ headerShown: false }}/>
-      <stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} options={{ headerShown: false }}/>
+      <stack.Screen name="Verify" component={VerifyScreen} options={{ headerShown: false }} />
+      <stack.Screen name="Otp" component={OtpScreen} options={{ headerShown: false }} />
+      <stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} options={{ headerShown: false }} />
 
     </stack.Navigator>
   );

@@ -5,7 +5,7 @@ import { useLoadingContext } from "../../context/loadingHelper";
 
 export const useFriend = () => {
     const baseApi = new BaseApiService();
-    const {showLoading, hideLoading} = useLoadingContext();
+    const { showLoading, hideLoading } = useLoadingContext();
 
     const onGetAllFriend = async () => {
         showLoading();
@@ -35,7 +35,7 @@ export const useFriend = () => {
         const res = await baseApi.get(`${API_URL}/friend/getListRequestFriend`);
         hideLoading();
         return res;
-    
+
     }
 
 
