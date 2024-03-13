@@ -1,15 +1,15 @@
-interface Auth {
-  children: React.ReactNode
-  signIn?: () => void
-  signOut?: () => void
-  createAccount?: () => void
-  email?: string
-  password?: string
-  setEmail?: React.Dispatch<React.SetStateAction<string>>
-  setPassword?: React.Dispatch<React.SetStateAction<string>>
+interface Auth{
+  children:React.ReactNode
+  signIn?:() => void
+  signOut?:() => void
+  createAccount?:() => void
+  email?:string
+  password?:string
+  setEmail?:React.Dispatch<React.SetStateAction<string>>
+  setPassword?:React.Dispatch<React.SetStateAction<string>>
 }
-interface Children {
-  children: React.ReactNode
+interface Children{
+  children:React.ReactNode
 }
 
 

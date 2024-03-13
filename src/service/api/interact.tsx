@@ -5,7 +5,7 @@ import { useLoadingContext } from "../../context/loadingHelper";
 
 export const useInteract = () => {
     const baseApi = new BaseApiService();
-    const { showLoading, hideLoading } = useLoadingContext();
+    const {showLoading, hideLoading} = useLoadingContext();
     const onLove = async (entityId: string) => {
         showLoading();
         const res = await baseApi.post(`${API_URL}/user-interact/love`, {
@@ -78,7 +78,7 @@ export const useInteract = () => {
         return res;
     };
 
-
-    return { onLove, onRemoveLove, onDisLove, onRemoveDisLove, onLoveComment, onRemoveLoveComment, onDisloveComment, onRemoveDisloveComment }
+  
+    return { onLove, onRemoveLove, onDisLove, onRemoveDisLove, onLoveComment, onRemoveLoveComment, onDisloveComment, onRemoveDisloveComment}
 
 }; 

@@ -100,7 +100,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
     },
-
+    
     // backIcon: {
     //     position: 'absolute',
     //     left: 20,
@@ -108,7 +108,7 @@ export const styles = StyleSheet.create({
     //     backgroundColor: 'red',
     //     marginTop: 20,
     // },
-
+    
 
 
 });

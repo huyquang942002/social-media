@@ -25,11 +25,11 @@ interface Types {
   route: any;
 }
 
-const filters = ["DOG", "CAT", "BIRD", "FISH", "SHRIMP", "SQUID", "SCALLOP", "CRAB", "OTHER"];
+const filters = ["DOG", "CAT", "BIRD", "FISH", "SHRIMP", "SQUID", "SCALLOP", "CRAB","OTHER"];
 
 const AnimalHomeScreen: React.FC<Types> = ({ navigation, route }) => {
   const { user } = useContext(AuthContext);
-  const userId = route.params?.userId ? route.params?.userId : user.id;
+  const userId = route.params?.userId ? route.params?.userId : user.id;  
   const [selectSpec, setSelectSpec] = useState<any>("DOG");
   const [refreshing, setRefreshing] = useState<boolean>(false);
   const { onGetAllPet } = usePet();
@@ -86,13 +86,13 @@ const AnimalHomeScreen: React.FC<Types> = ({ navigation, route }) => {
     }
   }
 
-  const onLoadMore = () => {
+  const onLoadMore = () => {    
     if (canLoadMore && !onMomentalScroll) {
       setPage(page + 1);
       setOnMomentalScroll(true);
     }
   };
-
+ 
 
   useFocusEffect(
     React.useCallback(() => {
@@ -106,7 +106,7 @@ const AnimalHomeScreen: React.FC<Types> = ({ navigation, route }) => {
   const renderItem = ({ item }: { item: AnimalCardProps }) => (
     <AnimalCard
       item={item}
-      onPress={() => { navigation.navigate('AnimalDetail', { petInfo: item }) }}
+      onPress={() => { navigation.navigate('AnimalDetail', {petInfo: item}) }}
     />
   );
   const filterList = () => {
@@ -120,8 +120,8 @@ const AnimalHomeScreen: React.FC<Types> = ({ navigation, route }) => {
         showsHorizontalScrollIndicator={false}
         keyExtractor={(key, index) => index.toString()}
         renderItem={({ item }) => (
-          <TouchableOpacity style={[styles.filterItem, { backgroundColor: selectSpec == item ? "#7878AB" : "#F5F5FA" }]} onPress={() => setSelectSpec(item)}>
-            <AppText style={[styles.filterItemText, { color: selectSpec == item ? "#F5F5FA" : "#7878AB" }]}>
+          <TouchableOpacity style={[styles.filterItem, {backgroundColor: selectSpec == item ? "#7878AB" : "#F5F5FA"}]} onPress={() => setSelectSpec(item)}>
+            <AppText style={[styles.filterItemText, {color: selectSpec == item ? "#F5F5FA" : "#7878AB"}]}>
               {item}
             </AppText>
           </TouchableOpacity>
@@ -133,7 +133,7 @@ const AnimalHomeScreen: React.FC<Types> = ({ navigation, route }) => {
     navigation.navigate('Tabs')
     return true;
   }
-
+  
   useEffect(() => {
     BackHandler.addEventListener("hardwareBackPress", handleBackButtonClick);
     return () => {
@@ -143,7 +143,7 @@ const AnimalHomeScreen: React.FC<Types> = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <View style={styles.topSection}>
-        <Image style={styles.topIcon} source={user.s3Profile ? { uri: convertToS3LinkProfile(user.id, user.s3Profile).path } : images.avatarDemo} resizeMode='cover' />
+        <Image style={styles.topIcon} source={user.s3Profile ? {uri: convertToS3LinkProfile(user.id, user.s3Profile).path} : images.avatarDemo} resizeMode='cover' />
         <TouchableOpacity style={styles.createPostBtn}>
           <Icon name="place" size={15} color={'#F03974'} />
           <AppText style={styles.createPostBtnText}>New York City</AppText>
@@ -157,22 +157,22 @@ const AnimalHomeScreen: React.FC<Types> = ({ navigation, route }) => {
 
       </View>
 
-
-      <FlatList
-        data={pets}
-        keyExtractor={(item, index) => index.toString()}
-        style={styles.postContainer}
-        initialNumToRender={3}
-        ListHeaderComponent={filterList}
-        contentContainerStyle={{ paddingBottom: 5 }}
-        showsVerticalScrollIndicator={false}
-        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
-        renderItem={renderItem}
-        onEndReachedThreshold={1}
-        onEndReached={() => onLoadMore()}
-        onMomentumScrollBegin={() => setOnMomentalScroll(false)}
-        ListEmptyComponent={() => <EmptyList title="No pet" />}
-      />
+    
+        <FlatList
+          data={pets}
+          keyExtractor={(item, index) => index.toString()}
+          style={styles.postContainer}
+          initialNumToRender={3}
+          ListHeaderComponent={filterList}
+          contentContainerStyle={{ paddingBottom: 5 }}
+          showsVerticalScrollIndicator={false}
+          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+          renderItem={renderItem}
+          onEndReachedThreshold={1}
+          onEndReached={() => onLoadMore()}
+          onMomentumScrollBegin={() => setOnMomentalScroll(false)}
+          ListEmptyComponent={() => <EmptyList title="No pet" />}
+        />
     </View>
   );
 };

@@ -6,7 +6,7 @@ import { useLoadingContext } from "../../context/loadingHelper";
 
 export const userNotification = () => {
     const baseApi = new BaseApiService();
-    const { showLoading, hideLoading } = useLoadingContext();
+    const {showLoading, hideLoading} = useLoadingContext();
 
     const onCreateNotification = async (type: string, data: string, createdBy: string, userId: string, actionUserId: string, additionalData: string) => {
         showLoading();
@@ -21,7 +21,7 @@ export const userNotification = () => {
         hideLoading();
         return res;
     }
-
+    
     const onGetAllNotification = async (order: string, page: number, take: number) => {
         showLoading();
         const res = await baseApi.get(`${API_URL}/notifications?page=${page}&take=${take}&order=${order}`);
@@ -41,7 +41,7 @@ export const userNotification = () => {
         hideLoading();
         return res;
     }
+    
 
-
-    return { onCreateNotification, onGetAllNotification, deleteComment, onGetCommentByParentComment };
+    return { onCreateNotification, onGetAllNotification, deleteComment, onGetCommentByParentComment};
 }; 

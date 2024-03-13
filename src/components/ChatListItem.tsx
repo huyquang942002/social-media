@@ -10,22 +10,22 @@ import { convertToS3LinkProfile } from '../config/util';
 
 
 
-const ChatListItem = ({ conversation, navigation }: any) => {
-
-    const { user } = useContext(AuthContext);
+const ChatListItem = ({conversation, navigation}: any) => {
+    
+    const {user} = useContext(AuthContext);
     // const loggedInUserId = useSelector(state => state.auth.user._id);
     // const allUsers = useSelector(state => state.users.allUsers);
     // const loggedInUser = allUsers.filter(u => u._id === loggedInUserId)[0];
     // currUser following list
     const [userChat, setUserChat] = useState<any>();
 
-    useEffect(() => {
+    useEffect(() => {        
         if (conversation.receiverId == user.id) {
             setUserChat(conversation.senderUser)
         } else {
             setUserChat(conversation.receiverUser)
         }
-
+    
     }, [conversation]);
 
 
@@ -40,13 +40,13 @@ const ChatListItem = ({ conversation, navigation }: any) => {
 
     return (
         <TouchableOpacity
-            onPress={() => navigation.navigate('Chat', { userChat: userChat })}
+        onPress={() => navigation.navigate('Chat', { userChat: userChat })}
         >
             <View style={styles.container}>
                 <View>
 
                     <Image
-                        source={userChat?.s3Profile ? { uri: convertToS3LinkProfile(userChat.id, userChat.s3Profile).path } : images.avatarDemo}
+                      source={userChat?.s3Profile ? {uri: convertToS3LinkProfile(userChat.id, userChat.s3Profile).path} : images.avatarDemo}
 
                         onError={onImageErrorHandler}
                         style={styles.avatar}
@@ -59,11 +59,11 @@ const ChatListItem = ({ conversation, navigation }: any) => {
                             <Text
                                 style={styles.name}
                             >
-                                {userChat?.username}
+                               {userChat?.username}
                             </Text>
                         </View>
                         <Text style={styles.timeAgo}>
-                            {conversation.content}  •  {moment(conversation.createdAt).format('HH:MM')}
+                            {conversation.content}  •  {moment(conversation.createdAt).format('HH:MM') }
                         </Text>
                     </View>
                 </View>
