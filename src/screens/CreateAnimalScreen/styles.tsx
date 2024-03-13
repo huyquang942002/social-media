@@ -34,22 +34,22 @@ export const styles = StyleSheet.create({
         width: '95%',
         bottom: 24,
         borderRadius: 8,
-      },
+    },
 
-      avatarContainer: {
+    avatarContainer: {
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 20,
         marginBottom: 20,
-      },
+    },
 
-      petAvatar: {
+    petAvatar: {
         width: 120,
         height: 120,
         borderRadius: 50,
-      },
-      
-  
+    },
+
+
 
 
 });

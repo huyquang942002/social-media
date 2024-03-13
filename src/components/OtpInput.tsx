@@ -1,7 +1,7 @@
-import React, {forwardRef} from 'react';
-import {Platform, View} from 'react-native';
-import {makeStyles} from 'react-native-elements';
-import OtpInputs, {OtpInputsRef} from 'react-native-otp-inputs';
+import React, { forwardRef } from 'react';
+import { Platform, View } from 'react-native';
+import { makeStyles } from 'react-native-elements';
+import OtpInputs, { OtpInputsRef } from 'react-native-otp-inputs';
 
 interface IPinCodeInput {
   onFinish?: (value: string) => void;

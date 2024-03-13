@@ -52,6 +52,6 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         flex: 1,
     },
-    
+
 
 });

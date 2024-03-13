@@ -31,7 +31,7 @@ const AnimalDetailScreen: React.FC<Types> = ({ navigation, route }) => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const checkOwnPet = () => {
     return petInfo.createdUser.id == user?.id;
-}
+  }
 
   const deletePost = async () => {
     setShowModal(false);
@@ -70,7 +70,7 @@ const AnimalDetailScreen: React.FC<Types> = ({ navigation, route }) => {
           <View style={styles.imageContainer}>
             <Image
               resizeMode="contain"
-              source={{uri: convertToS3LinkPet(user.id, petInfo.s3ImagePet).path}}
+              source={{ uri: convertToS3LinkPet(user.id, petInfo.s3ImagePet).path }}
               style={styles.image}
             />
           </View>

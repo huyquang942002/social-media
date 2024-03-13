@@ -1,5 +1,5 @@
 import React from 'react';
-import {Header, HeaderProps, Icon, makeStyles} from 'react-native-elements';
+import { Header, HeaderProps, Icon, makeStyles } from 'react-native-elements';
 
 interface IHeaderProps extends HeaderProps {
   title?: string;
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 'bold',
     color: '#142F43',
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: {width: 0, height: 3},
+    textShadowOffset: { width: 0, height: 3 },
     textShadowRadius: 10
   },
   titleFilled: {
@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 const AppHeader = (props: IHeaderProps) => {
-  const {filled, title, hideBack, transparent, navigation, onGoback} = props;
+  const { filled, title, hideBack, transparent, navigation, onGoback } = props;
   const styles = useStyles();
 
   return (

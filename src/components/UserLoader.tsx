@@ -1,6 +1,6 @@
-import {StyleSheet, View, Dimensions} from 'react-native';
+import { StyleSheet, View, Dimensions } from 'react-native';
 import React from 'react';
-import ContentLoader, {Rect, Circle} from 'react-content-loader/native';
+import ContentLoader, { Rect, Circle } from 'react-content-loader/native';
 
 const UserLoader = () => {
   const width = Dimensions.get('window').width;

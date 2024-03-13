@@ -5,7 +5,7 @@ import { useLoadingContext } from "../../context/loadingHelper";
 
 export const useProfile = () => {
     const baseApi = new BaseApiService();
-    const {showLoading, hideLoading} = useLoadingContext();
+    const { showLoading, hideLoading } = useLoadingContext();
 
     const onGetDetailProfile = async (page?: number, take?: number, otherId?: string) => {
         showLoading();
@@ -13,6 +13,6 @@ export const useProfile = () => {
         hideLoading();
         return res;
     };
-    
+
     return { onGetDetailProfile };
 }; 

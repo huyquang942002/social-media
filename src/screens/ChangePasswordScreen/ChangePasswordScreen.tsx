@@ -23,8 +23,8 @@ const ChangePasswordScreen: React.FC<Types> = ({ navigation }) => {
   const [currPass, setCurrPass] = useState<string>('');
   const [newPass, setNewPass] = useState<string>('');
   const [confPass, setConfPass] = useState<string>('');
-  const {onUpdatePassword} = useUser();
-  const {showFlashMessage} = useContext(FlashMessageContext);
+  const { onUpdatePassword } = useUser();
+  const { showFlashMessage } = useContext(FlashMessageContext);
 
   const handleUpdate = async () => {
     if (newPass !== confPass) {

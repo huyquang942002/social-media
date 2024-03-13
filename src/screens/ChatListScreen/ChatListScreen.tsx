@@ -42,14 +42,14 @@ const ChatListScreen: React.FC<Types> = ({ navigation, route }) => {
             socket.on('connect', () => {
                 console.log('connected chat screen');
             })
-            socket.on('listenListConversation', (chats: any) => {                
+            socket.on('listenListConversation', (chats: any) => {
                 setListConversation(chats.data);
-                
+
             })
             socket.emit('listConversation', { page: 1, take: 10 });
         })
 
-       
+
     }, []);
 
 
@@ -156,7 +156,7 @@ const ChatListScreen: React.FC<Types> = ({ navigation, route }) => {
                 renderItem={(conversation) => {
                     return <ChatListItem conversation={conversation.item} navigation={navigation} />
                 }}
-                // extraData={listConversation}
+            // extraData={listConversation}
             />
         </SafeAreaView>
     );
