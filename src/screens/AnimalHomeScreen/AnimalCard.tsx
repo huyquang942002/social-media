@@ -14,7 +14,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 
 export interface AnimalCardProps {
-   
+
     onPress?: () => void;
     item: any
 }
@@ -22,12 +22,12 @@ export interface AnimalCardProps {
 
 
 const AnimalCard = (props: AnimalCardProps) => {
-    const {user} = useContext(AuthContext);
-    const {  onPress, item } = props;
-    
+    const { user } = useContext(AuthContext);
+    const { onPress, item } = props;
+
     return (
         <TouchableOpacity style={styles.container} onPress={onPress}>
-            <Image resizeMode={'cover'} style={{ width: 130, height: 150 }} source={{uri: convertToS3LinkPet(user.id, item.s3ImagePet).path}} />
+            <Image resizeMode={'cover'} style={{ width: 130, height: 150 }} source={{ uri: convertToS3LinkPet(user.id, item.s3ImagePet).path }} />
             <View style={styles.contentRight}>
                 <AppText style={styles.textTitle}>{item.name}</AppText>
                 <View style={styles.rowContainer}>
@@ -37,14 +37,14 @@ const AnimalCard = (props: AnimalCardProps) => {
                 <AppText numberOfLines={2} ellipsizeMode='tail' style={styles.descriptionText}>{item.description}</AppText>
             </View>
             <View style={styles.favoriteContainer}>
-                <Ionicons name="heart-outline" size={18} color="#BDBDBD"  />  
+                <Ionicons name="heart-outline" size={18} color="#BDBDBD" />
             </View>
         </TouchableOpacity>
     );
 };
 
 const styles = StyleSheet.create({
-    
+
     container: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         color: '#4F4F4F',
     },
-    favoriteContainer  : {
+    favoriteContainer: {
         alignItems: 'center',
         justifyContent: 'center',
         height: 26,

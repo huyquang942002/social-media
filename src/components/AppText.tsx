@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, TextProps} from 'react-native';
-import {Text} from 'react-native-elements';
+import { StyleSheet, TextProps } from 'react-native';
+import { Text } from 'react-native-elements';
 
 interface IAppTextProps extends TextProps {
   h1?: boolean;

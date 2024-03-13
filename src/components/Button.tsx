@@ -7,7 +7,7 @@ import {
   ViewStyle,
   TextStyle,
 } from 'react-native';
-import {Button, ButtonProps} from 'react-native-elements';
+import { Button, ButtonProps } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 
 interface IAppButtonProps extends ButtonProps {

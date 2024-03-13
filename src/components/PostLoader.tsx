@@ -1,6 +1,6 @@
-import {Dimensions, View} from 'react-native';
+import { Dimensions, View } from 'react-native';
 import React from 'react';
-import ContentLoader, {Circle, Rect} from 'react-content-loader/native';
+import ContentLoader, { Circle, Rect } from 'react-content-loader/native';
 
 const PostLoader = () => {
   const width = Dimensions.get('window').width;

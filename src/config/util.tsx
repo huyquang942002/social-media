@@ -3,19 +3,19 @@ import { PostGallery } from "../service/model/post";
 import RNFetchBlob from "rn-fetch-blob";
 import Clipboard from '@react-native-clipboard/clipboard';
 export const convertToS3LinkProfile = (userId: string, name: string) => {
-  return {path: process.env.NEXT_PUBLIC_URL_S3 + "profilePic_user_id" + "_" + userId + "/" + name};
+  return { path: process.env.NEXT_PUBLIC_URL_S3 + "profilePic_user_id" + "_" + userId + "/" + name };
 };
 
 export const convertToS3LinkChat = (userId: string, name: string) => {
-  return {path: process.env.NEXT_PUBLIC_URL_S3 + "conversation_user_id" + "_" + userId + "/" + name};
+  return { path: process.env.NEXT_PUBLIC_URL_S3 + "conversation_user_id" + "_" + userId + "/" + name };
 };
 
 export const convertToS3LinkComment = (userId: string, name: string) => {
-  return {path: process.env.NEXT_PUBLIC_URL_S3 + "comment_user_id" + "_" + userId + "/" + name};
+  return { path: process.env.NEXT_PUBLIC_URL_S3 + "comment_user_id" + "_" + userId + "/" + name };
 };
 
 export const convertListS3Link = (postGalleries: PostGallery[], userId: string) => {
-  return postGalleries.map((item) => {    
+  return postGalleries.map((item) => {
     return process.env.NEXT_PUBLIC_URL_S3 + "post_user_id" + "_" + userId + "/" + item.name;
   });
 }
@@ -23,9 +23,9 @@ export const convertListS3Link = (postGalleries: PostGallery[], userId: string) 
 export const convertToS3LinkPet = (userId: string, name: string) => {
   if (name.includes("https")) {
     const res = getImageUrlFromS3(name);
-    return {path: res};
+    return { path: res };
   }
-  return {path: process.env.NEXT_PUBLIC_URL_S3 + "pet_user_id" + "_" + userId + "/" + name};
+  return { path: process.env.NEXT_PUBLIC_URL_S3 + "pet_user_id" + "_" + userId + "/" + name };
 
 }
 
@@ -37,7 +37,7 @@ export const convertImage = (images: any) => {
 }
 
 export const getImageUrlFromS3 = (imageUrl: string) => {
-  try {    
+  try {
     const baseUrl = imageUrl.substring(0, imageUrl.indexOf("?"));
     return baseUrl;
   } catch (error) {
@@ -79,7 +79,7 @@ export const validateEmail = (email: string) => {
 }
 
 export const getToken = async () => {
-  const authorizationKey = await EncryptedStorage.getItem("secure_token");  
+  const authorizationKey = await EncryptedStorage.getItem("secure_token");
   return authorizationKey;
 }
 
